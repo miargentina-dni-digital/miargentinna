@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Mi Argentina</title>
     <link rel="stylesheet" href="style.css">
 
@@ -50,6 +49,8 @@
             </a>
 
         </div>
+
+        <span onclick="activarPantallaCompleta()" id="btn-invisible"></span>
     </div>
 
     <script>
@@ -79,6 +80,21 @@
 
         // Llamar a la función para mostrar la fecha y hora cuando se carga la página
         window.onload = mostrarFechaHora;
+    </script>
+
+    <script>
+        function activarPantallaCompleta() {
+            const elemento = document.documentElement;
+            if (elemento.requestFullscreen) {
+                elemento.requestFullscreen();
+            } else if (elemento.mozRequestFullScreen) {
+                elemento.mozRequestFullScreen();
+            } else if (elemento.webkitRequestFullscreen) {
+                elemento.webkitRequestFullscreen();
+            } else if (elemento.msRequestFullscreen) {
+                elemento.msRequestFullscreen();
+            }
+        }
     </script>
 </body>
 </html>
